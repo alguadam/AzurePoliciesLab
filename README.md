@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # Welcome
 
 Welcome to this lab
