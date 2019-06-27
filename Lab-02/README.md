@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # Introduction
 
 In this lab you will learn how to create custom policies and custom initiatives so that you can gain control of Azure given your specific needs

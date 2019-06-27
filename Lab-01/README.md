@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # Introduction
 
 In this lab you will configure Build and Release pipelines so that you can manage assignments of both built-in policies and custom policies and initiatives to Resource Groups, Subscriptions or Management Groups using Infrastructure as Code.

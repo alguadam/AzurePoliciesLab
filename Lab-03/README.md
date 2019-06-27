@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # Introduction
 
 In this lab you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
