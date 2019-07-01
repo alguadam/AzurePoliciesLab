@@ -3,7 +3,7 @@
 - [Activity 1: Deploy built-in Azure Policies via IaC, CI and CD](#Activity-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
   - [Instructions](#Instructions)
-    - [Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo](#Task-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps-Repo)
+    - [Task 1 - Create assignments for your built-in policies in your Azure DevOps / Github Repo](#Task-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps--Github-Repo)
     - [Task 2 - Create the a Build pipeline (.yaml) for your files](#Task-2---Create-the-a-Build-pipeline-yaml-for-your-files)
     - [Task 3 - Deploy the assignments via Release pipeline](#Task-3---Deploy-the-assignments-via-Release-pipeline)
   - [Theoretical Content](#Theoretical-Content)
@@ -18,7 +18,7 @@ In this activity you will configure Build and Release pipelines so that you can 
 
 ## Instructions
 
-### Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo 
+### Task 1 - Create assignments for your built-in policies in your Azure DevOps / Github Repo 
 
 > Related theoretical content:
 > + [Azure Policy Service](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#azure-policy-service)
@@ -28,7 +28,7 @@ In this activity you will configure Build and Release pipelines so that you can 
 
 In this Task, you will define assignments of one or more built-in policies and initiatives to a existing Resource Group.
 
-**Step 1 - Create the ARM Template for the Assignment in your Azure DevOps Repo**
+**Step 1 - Create the ARM Template for the Assignment in your Azure DevOps / Github Repo**
 
 You will create an ARM Template that will allow you to define assignments for [resource group deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format).
 
@@ -144,7 +144,7 @@ Suggested File Path: `Templates\Assignments\resourceGroup.json`
 }
 ```
 
-**Step 2 - Create the parameters File for the Assignment in your Azure DevOps Repo**
+**Step 2 - Create the parameters File for the Assignment in your Azure DevOps / Github Repo**
 
 You define a ARM Parameters file where you will configure define assignments for your Resource Group.
 
@@ -256,7 +256,7 @@ jobs:
 
 Now, configure the YAML file above as a Build Pipeline and run it
 
-> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\assignments.yaml}
+> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) / Github (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\assignments.yaml}
 
 We suggest that you rename the build pipeline as `ci-assignments`
 
@@ -312,7 +312,7 @@ stages:
 
 Now, configure the YAML file above as a Build Pipeline and run it
 
-> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\parameters.yaml}
+> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) / Github (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\parameters.yaml}
 
 We suggest that you rename the build pipeline as `ci-parameters`
 

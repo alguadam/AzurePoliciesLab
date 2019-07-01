@@ -34,7 +34,7 @@ In this activity you will learn how to create custom policies and custom initiat
 
 In this Task, you will create a custom policy in an ARM Template that will deny deploying Storage Accounts allowing HTTP traffic
 
-**Step 1 - Create the ARM Template for the Policy Definition in your Azure DevOps Repo**
+**Step 1 - Create the ARM Template for the Policy Definition in your Azure DevOps / Github Repo**
 
 The policy will be defined in an ARM Template with the schema for [subscription deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format) 
 
@@ -138,7 +138,7 @@ Get-AzPolicyDefinition | ? {$_.properties.policyType -eq "Custom"}
 
 In this Task, you will create a custom initiative in an ARM Template that will contain the policy definition created in the Task 1
 
-**Step 1 - Create the ARM Template for the Initiative in your Azure DevOps Repo**
+**Step 1 - Create the ARM Template for the Initiative in your Azure DevOps / Github Repo**
 
 As in Task 1, the initiative will be defined in an ARM Template with the schema for [subscription deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format).
 
@@ -230,7 +230,7 @@ Get-AzPolicySetDefinition | ? {$_.properties.policyType -eq "Custom"}
 
 In this Task, you will test if your policy is working as expected by assigning the policy to a Resource Group and deploying au uncompliant resource so that the policy denies the deployment
 
-**Step 1 - Create the ARM Template for the Assignment in your Azure DevOps Repo**
+**Step 1 - Create the ARM Template for the Assignment in your Azure DevOps / Github Repo**
 
 This time, the assignment will be defined in an ARM Template with the schema for [resource group deployments](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates#template-format).
 
@@ -346,11 +346,11 @@ Suggested File Path: `Templates\Assignments\resourceGroup.json`
 }
 ```
 
-**Step 2 - Create the Parameters File for the Assignment in your Azure DevOps Repo**
+**Step 2 - Create the Parameters File for the Assignment in your Azure DevOps / Github Repo**
 
 The template from step 1 will allow you to configure a Parameters file that will assign one or more policies and one or more definitions to one Resource Group.
 
-You need to create your Parameters Path in your Azure DevOps Repo:
+You need to create your Parameters Path in your Azure DevOps / Github Repo:
 
 Suggested File Path: `Parameters\lab02-rgAssignments.json`
 ```json

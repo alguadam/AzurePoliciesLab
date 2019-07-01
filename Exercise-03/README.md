@@ -70,7 +70,7 @@ stages:
 
 Now, configure the YAML file above as a Build Pipeline and run it
 
-> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\storageAccount.yaml}
+> Pipeline > Builds > New > New build pipeline > Azure Repos Git (YAML) / Github (YAML) > {Your Repo} > Existing Azure Pipelines YAML file > Branch : {your branch}, Path : {ci\storageAccount.yaml}
 
 We suggest that you rename the build pipeline as `ci-storageAccount`
 
