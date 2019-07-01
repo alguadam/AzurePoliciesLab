@@ -2,7 +2,7 @@
 
 - [Activity 1: Deploy built-in Azure Policies via IaC, CI and CD](#Activity-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
-  - [Exercises](#Exercises)
+  - [Instructions](#Instructions)
     - [Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo](#Task-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps-Repo)
     - [Task 2 - Create the a Build pipeline (.yaml) for your files](#Task-2---Create-the-a-Build-pipeline-yaml-for-your-files)
     - [Task 3 - Deploy the assignments via Release pipeline](#Task-3---Deploy-the-assignments-via-Release-pipeline)
@@ -16,7 +16,7 @@
 
 In this activity you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
 
-## Exercises
+## Instructions
 
 ### Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo 
 

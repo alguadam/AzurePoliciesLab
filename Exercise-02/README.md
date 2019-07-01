@@ -2,7 +2,7 @@
 
 - [Activity 2: Develop and Test your custom Policy](#Activity-2-Develop-and-Test-your-custom-Policy)
   - [Introduction](#Introduction)
-  - [Exercises](#Exercises)
+  - [Instructions](#Instructions)
     - [Task 1 - Develop your custom policy rule in an ARM Template](#Task-1---Develop-your-custom-policy-rule-in-an-ARM-Template)
     - [Task 2 - Develop your custom initiative in an ARM Template](#Task-2---Develop-your-custom-initiative-in-an-ARM-Template)
     - [Task 3 - Assign and test your Policy](#Task-3---Assign-and-test-your-Policy)
@@ -24,7 +24,7 @@
 
 In this activity you will learn how to create custom policies and custom initiatives so that you can gain control of Azure given your specific needs
 
-## Exercises
+## Instructions
 
 ### Task 1 - Develop your custom policy rule in an ARM Template
 

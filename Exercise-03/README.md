@@ -2,7 +2,7 @@
 
 - [Activity 3: Deploy and Manage custom policies and Azure Policies via IaC, CI and CD](#Activity-3-Deploy-and-Manage-custom-policies-and-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
-  - [Exercises](#Exercises)
+  - [Instructions](#Instructions)
     - [Task 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives](#Task-1---Enable-continuous-integration-and-continuous-deployment-for-your-Storage-Account-Policies-and-Initiatives)
     - [Task 2 - Add to your assignments the Storage Account custom Initiative](#Task-2---Add-to-your-assignments-the-Storage-Account-custom-Initiative)
 
@@ -14,7 +14,7 @@ There are several strategies to follow when defining you Repository structure an
 
 This will allow us to group and version resources related to a specific Resource Type altogether (for the moment, deployment ARM Templates, Policy Definitions and Initiatives, but we could also have for instance [custom roles](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) related to that Resource Type)
 
-## Exercises
+## Instructions
 
 ### Task 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives
 
