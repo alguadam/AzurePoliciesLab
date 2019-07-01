@@ -1,11 +1,11 @@
-# Lab 1: Deploy built-in Azure Policies via IaC, CI and CD
+# Objective 1: Deploy built-in Azure Policies via IaC, CI and CD
 
-- [Lab 1: Deploy built-in Azure Policies via IaC, CI and CD](#Lab-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
+- [Objective 1: Deploy built-in Azure Policies via IaC, CI and CD](#Objective-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
   - [Exercises](#Exercises)
-    - [Exercise 1 - Create assignments for your built-in policies in your Azure DevOps Repo](#Exercise-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps-Repo)
-    - [Exercise 2 - Create the a Build pipeline (.yaml) for your files](#Exercise-2---Create-the-a-Build-pipeline-yaml-for-your-files)
-    - [Exercise 3 - Deploy the assignments via Release pipeline](#Exercise-3---Deploy-the-assignments-via-Release-pipeline)
+    - [Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo](#Task-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps-Repo)
+    - [Task 2 - Create the a Build pipeline (.yaml) for your files](#Task-2---Create-the-a-Build-pipeline-yaml-for-your-files)
+    - [Task 3 - Deploy the assignments via Release pipeline](#Task-3---Deploy-the-assignments-via-Release-pipeline)
   - [Theoretical Content](#Theoretical-Content)
     - [Azure Policy Service](#Azure-Policy-Service)
     - [Built-in Policies](#Built-in-Policies)
@@ -14,19 +14,19 @@
 
 ## Introduction
 
-In this lab you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
+In this exercise you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
 
 ## Exercises
 
-### Exercise 1 - Create assignments for your built-in policies in your Azure DevOps Repo 
+### Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo 
 
 > Related theoretical content:
-> + [Azure Policy Service](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#azure-policy-service)
-> + [Built-in Policies](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-policies)
-> + [Built-in Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-initiatives)
-> + [Assignments](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#assignments)
+> + [Azure Policy Service](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#azure-policy-service)
+> + [Built-in Policies](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-policies)
+> + [Built-in Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-initiatives)
+> + [Assignments](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#assignments)
 
-In this exercise, you will define assignments of one or more built-in policies and initiatives to a existing Resource Group.
+In this Task, you will define assignments of one or more built-in policies and initiatives to a existing Resource Group.
 
 **Step 1 - Create the ARM Template for the Assignment in your Azure DevOps Repo**
 
@@ -202,9 +202,9 @@ Get-AzPolicyDefinition | ? {$_.properties.policyType -eq "Builtin"}
 
 ----
 
-### Exercise 2 - Create the a Build pipeline (.yaml) for your files 
+### Task 2 - Create the a Build pipeline (.yaml) for your files 
 
-In this exercise, you will configure a Build pipeline that will let you version and use your templates and parameter files in the release pipeline.
+In this Task, you will configure a Build pipeline that will let you version and use your templates and parameter files in the release pipeline.
 
 We will use two different build pipelines because normally, parameters have a different lifecycle than ARM Templates, and ARM Templates are designed to be reused for different scenarios, so we will want to version those artifacts differently.
 
@@ -320,9 +320,9 @@ We suggest that you rename the build pipeline as `ci-parameters`
 
 ----
 
-### Exercise 3 - Deploy the assignments via Release pipeline
+### Task 3 - Deploy the assignments via Release pipeline
 
-In this exercise, you will configure an Azure DevOps release pipeline that will deploy your assignments. Once this pipeline is configured, you will manage your assignments by just modifying your parameters file.
+In this Task, you will configure an Azure DevOps release pipeline that will deploy your assignments. Once this pipeline is configured, you will manage your assignments by just modifying your parameters file.
 
 **Step 1 - Configure and deploy your release pipeline**
 

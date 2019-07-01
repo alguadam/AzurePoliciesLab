@@ -1,14 +1,14 @@
-# Lab 3: Deploy and Manage custom policies and Azure Policies via IaC, CI and CD
+# Objective 3: Deploy and Manage custom policies and Azure Policies via IaC, CI and CD
 
-- [Lab 3: Deploy and Manage custom policies and Azure Policies via IaC, CI and CD](#Lab-3-Deploy-and-Manage-custom-policies-and-Azure-Policies-via-IaC-CI-and-CD)
+- [Objective 3: Deploy and Manage custom policies and Azure Policies via IaC, CI and CD](#Objective-3-Deploy-and-Manage-custom-policies-and-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
   - [Exercises](#Exercises)
-    - [Exercise 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives](#Exercise-1---Enable-continuous-integration-and-continuous-deployment-for-your-Storage-Account-Policies-and-Initiatives)
-    - [Exercise 2 - Add to your assignments the Storage Account custom Initiative](#Exercise-2---Add-to-your-assignments-the-Storage-Account-custom-Initiative)
+    - [Task 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives](#Task-1---Enable-continuous-integration-and-continuous-deployment-for-your-Storage-Account-Policies-and-Initiatives)
+    - [Task 2 - Add to your assignments the Storage Account custom Initiative](#Task-2---Add-to-your-assignments-the-Storage-Account-custom-Initiative)
 
 ## Introduction
 
-In this lab you will configure Build and Release pipelines so that you can manage assignments of both built-in policies and custom policies and initiatives to Resource Groups, Subscriptions or Management Groups using Infrastructure as Code.
+In this exercise you will configure Build and Release pipelines so that you can manage assignments of both built-in policies and custom policies and initiatives to Resource Groups, Subscriptions or Management Groups using Infrastructure as Code.
 
 There are several strategies to follow when defining you Repository structure and your build pipelines. In this laboratory, we are defining policies and initiatives for each Azure Resource Type, so we are creating a directory  in our Repository for each Resource type (for the moment, storage account), and we are leaving all the artifacts related to this Resource type in that directory (e.g. `Templates/StorageAccount`).
 
@@ -16,9 +16,9 @@ This will allow us to group and version resources related to a specific Resource
 
 ## Exercises
 
-### Exercise 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives
+### Task 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives
 
-In this exercise, you will enable continuous integration and continuous deployment for the custom policies and initiatives that you created in Lab 2.
+In this Task, you will enable continuous integration and continuous deployment for the custom policies and initiatives that you created in Objective 2.
 
 **Step 1 - Create the build pipeline for Storage Account artifacts**
 
@@ -114,7 +114,7 @@ Configure the following properties in the task:
 | ------------------------ | ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Task version             | 4.* (preview)                                                          | This version will allow you tu use `Az` cmdlets                                                                                                                                                                                                                                                                                                                             |
 | Display name             | Deploy Policy                                                          |
-| Azure Subscription       | {your connection endpoint with permissions on your azure subscription} | See https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%203%20(15%20min)%3A%20Deploy%20and%20Manage%20custom%20policies%20and%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=313&wikiVersion=GBwikiMaster#permissions-on-the-subscription-for-your-deployment-service-principal |
+| Azure Subscription       | {your connection endpoint with permissions on your azure subscription} | See https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%203%20(15%20min)%3A%20Deploy%20and%20Manage%20custom%20policies%20and%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=313&wikiVersion=GBwikiMaster#permissions-on-the-subscription-for-your-deployment-service-principal |
 | Script Type              | Inline Script                                                          |
 | Inline Script            | {see below}                                                            |
 | Azure PowerShell Version | Latest Installed version                                               |
@@ -132,7 +132,7 @@ New-AzDeployment @policyDefinitionAzDeploymentParams -Verbose | Out-Null
 
 ![Azure PowerShell Task Configuration](/.attachments/lab03-exercise01-step02-storageAccountReleasePipelineTaskConfiguration.png)
 
-Clone the task and edit the TeplateFile value as many times as policies you defined in Lab 2 for the Storage Account.
+Clone the task and edit the TeplateFile value as many times as policies you defined in Objective 2 for the Storage Account.
 
 Finally, clone the task and modify the script to deploy the ARM template with the Custom Initiative. This policy should be available in the linked artifact `_ci-storageAccount` (at `_ci-storageAccount\storageAccount\policy-denyHttp.json`)
 
@@ -161,13 +161,13 @@ Troubleshoot if the deployment didn't succeed. If succeeded, you should be able 
 
 ----
 
-### Exercise 2 - Add to your assignments the Storage Account custom Initiative
+### Task 2 - Add to your assignments the Storage Account custom Initiative
 
-In this exercise, you will add the custom custom policies and initiatives that you created for the Storage Accounts in Lab 2 to the assignments parameter file that you created in Lab 1
+In this Task, you will add the custom custom policies and initiatives that you created for the Storage Accounts in Objective 2 to the assignments parameter file that you created in Objective 1
 
 **Step 1 - Edit the release pipeline to use a new parameters file**
 
-This step is very simple. You will edit the release pipeline that you created in lab 1 (`cd-assignments`) to use a new parameters file:
+This step is very simple. You will edit the release pipeline that you created in Objective 1 (`cd-assignments`) to use a new parameters file:
 
 > Tasks > Policy Assignments > Task: deploy assignments > Template parameters : $(System.DefaultWorkingDirectory)/_ci-parameters/parameters/lab03-rgAssignments.json
 
