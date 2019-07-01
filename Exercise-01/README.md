@@ -1,6 +1,6 @@
-# Objective 1: Deploy built-in Azure Policies via IaC, CI and CD
+# Activity 1: Deploy built-in Azure Policies via IaC, CI and CD
 
-- [Objective 1: Deploy built-in Azure Policies via IaC, CI and CD](#Objective-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
+- [Activity 1: Deploy built-in Azure Policies via IaC, CI and CD](#Activity-1-Deploy-built-in-Azure-Policies-via-IaC-CI-and-CD)
   - [Introduction](#Introduction)
   - [Exercises](#Exercises)
     - [Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo](#Task-1---Create-assignments-for-your-built-in-policies-in-your-Azure-DevOps-Repo)
@@ -14,17 +14,17 @@
 
 ## Introduction
 
-In this exercise you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
+In this activity you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
 
 ## Exercises
 
 ### Task 1 - Create assignments for your built-in policies in your Azure DevOps Repo 
 
 > Related theoretical content:
-> + [Azure Policy Service](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#azure-policy-service)
-> + [Built-in Policies](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-policies)
-> + [Built-in Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-initiatives)
-> + [Assignments](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#assignments)
+> + [Azure Policy Service](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#azure-policy-service)
+> + [Built-in Policies](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-policies)
+> + [Built-in Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#built-in-initiatives)
+> + [Assignments](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%201%20(15%20min)%3A%20Deploy%20built%252Din%20Azure%20Policies%20via%20IaC%2C%20CI%20and%20CD&pageId=308&wikiVersion=GBwikiMaster&anchor=azure-policy-service#assignments)
 
 In this Task, you will define assignments of one or more built-in policies and initiatives to a existing Resource Group.
 

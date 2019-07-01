@@ -1,6 +1,6 @@
-# Objective 2: Develop and Test your custom Policy
+# Activity 2: Develop and Test your custom Policy
 
-- [Objective 2: Develop and Test your custom Policy](#Objective-2-Develop-and-Test-your-custom-Policy)
+- [Activity 2: Develop and Test your custom Policy](#Activity-2-Develop-and-Test-your-custom-Policy)
   - [Introduction](#Introduction)
   - [Exercises](#Exercises)
     - [Task 1 - Develop your custom policy rule in an ARM Template](#Task-1---Develop-your-custom-policy-rule-in-an-ARM-Template)
@@ -22,15 +22,15 @@
 
 ## Introduction
 
-In this exercise you will learn how to create custom policies and custom initiatives so that you can gain control of Azure given your specific needs
+In this activity you will learn how to create custom policies and custom initiatives so that you can gain control of Azure given your specific needs
 
 ## Exercises
 
 ### Task 1 - Develop your custom policy rule in an ARM Template
 
 > Related theoretical content:
-> + [Custom Policies intro](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=custom-policies-intro)
-> + [Azure Policy Definitions](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=azure-policy-definitions)
+> + [Custom Policies intro](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=custom-policies-intro)
+> + [Azure Policy Definitions](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=azure-policy-definitions)
 
 In this Task, you will create a custom policy in an ARM Template that will deny deploying Storage Accounts allowing HTTP traffic
 
@@ -93,15 +93,15 @@ Suggested File Path: `Templates\StorageAccount\policy-denyHttp.json`
 
  You can take a look to the **properties of the Storage Account** in the Resource Provider [`microsoft.storage`](https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/allversions) and the resource type [`storageaccounts`](https://docs.microsoft.com/en-us/azure/templates/microsoft.storage/2019-04-01/storageaccounts)
 
-For the [`if` **condition**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=conditions%2C-fields-and-values), you will have to use [**aliases**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(60%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=aliases). You can use the [`Get-AzPolicyAlias -NamespaceMatch Microsoft.Storage`](https://docs.microsoft.com/en-us/powershell/module/az.resources/get-azpolicyalias?view=azps-2.2.0&viewFallbackFrom=azps-1.0.0) cmdlet to find out Storage Account available aliases
+For the [`if` **condition**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=conditions%2C-fields-and-values), you will have to use [**aliases**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(60%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=aliases). You can use the [`Get-AzPolicyAlias -NamespaceMatch Microsoft.Storage`](https://docs.microsoft.com/en-us/powershell/module/az.resources/get-azpolicyalias?view=azps-2.2.0&viewFallbackFrom=azps-1.0.0) cmdlet to find out Storage Account available aliases
 
-The [`then` **effect**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=effect) must deny the deployment.
+The [`then` **effect**](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=effect) must deny the deployment.
 
 **Step 3 - Publish your policy definition**
 
 Once you have a rule ready to be tested, we will test it by directly publishing it to our Azure Subscription.
 
-There are not many mechanisms today that let us test the policy locally, so this is the approach we will take for this Objective.
+There are not many mechanisms today that let us test the policy locally, so this is the approach we will take for this Activity.
 
 You can publish your Policy to your subscription by using the following PowerShell Script:
 
@@ -134,7 +134,7 @@ Get-AzPolicyDefinition | ? {$_.properties.policyType -eq "Custom"}
 ### Task 2 - Develop your custom initiative in an ARM Template
 
 > Related theoretical content:
-> + [Azure Policy Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Objective.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=azure-policy-initiatives)
+> + [Azure Policy Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Activity.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=azure-policy-initiatives)
 
 In this Task, you will create a custom initiative in an ARM Template that will contain the policy definition created in the Task 1
 
