@@ -105,7 +105,9 @@ Your user needs to have at least the following [permissions](https://docs.micros
 
 ### Register the Azure Policy Insights resource provider
 
-Register the Azure [Policy Insights](https://docs.microsoft.com/en-us/rest/api/policy-insights/) resource provider using Azure PowerShell to validate that your subscription works with the resource provider. To register a resource provider, you must have permission to run the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. Run the following command to register the resource provider:
+Register the Azure [Policy Insights](https://docs.microsoft.com/en-us/rest/api/policy-insights/) resource provider using Azure PowerShell to validate that your subscription works with the resource provider. To register a resource provider, you must have permission to run the register action operation for the resource provider. This operation is included in the Contributor and Owner roles. 
+
+Run the following command to register the resource provider:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
