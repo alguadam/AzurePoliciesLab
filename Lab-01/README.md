@@ -324,7 +324,7 @@ We suggest that you rename the build pipeline as `ci-parameters`
 
 In this exercise, you will configure an Azure DevOps release pipeline that will deploy your assignments. Once this pipeline is configured, you will manage your assignments by just modifying your parameters file.
 
-**Step 1 - Configure your release pipeline**
+**Step 1 - Configure and deploy your release pipeline**
 
 Now that your build pipelines run, we have both the ARM Template and the parameters file to be used as Azure DevOps artifacts.
 

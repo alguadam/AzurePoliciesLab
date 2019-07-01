@@ -4,7 +4,7 @@
   - [Introduction](#Introduction)
   - [Exercises](#Exercises)
     - [Exercise 1 - Enable continuous integration and continuous deployment for your Storage Account Policies and Initiatives](#Exercise-1---Enable-continuous-integration-and-continuous-deployment-for-your-Storage-Account-Policies-and-Initiatives)
-    - [Exercise 2 - Add to you assignments the Storage Account custom Initiative](#Exercise-2---Add-to-you-assignments-the-Storage-Account-custom-Initiative)
+    - [Exercise 2 - Add to your assignments the Storage Account custom Initiative](#Exercise-2---Add-to-your-assignments-the-Storage-Account-custom-Initiative)
 
 ## Introduction
 
@@ -161,7 +161,7 @@ Troubleshoot if the deployment didn't succeed. If succeeded, you should be able 
 
 ----
 
-### Exercise 2 - Add to you assignments the Storage Account custom Initiative
+### Exercise 2 - Add to your assignments the Storage Account custom Initiative
 
 In this exercise, you will add the custom custom policies and initiatives that you created for the Storage Accounts in Lab 2 to the assignments parameter file that you created in Lab 1
 
