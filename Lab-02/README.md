@@ -1,10 +1,32 @@
-# Introduction
+# Lab 2: Develop and Test your custom Policy
+
+- [Lab 2: Develop and Test your custom Policy](#Lab-2-Develop-and-Test-your-custom-Policy)
+  - [Introduction](#Introduction)
+  - [Exercises](#Exercises)
+    - [Exercise 1 - Develop your custom policy rule in an ARM Template](#Exercise-1---Develop-your-custom-policy-rule-in-an-ARM-Template)
+    - [Exercise 2 - Develop your custom initiative in an ARM Template](#Exercise-2---Develop-your-custom-initiative-in-an-ARM-Template)
+    - [Exercise 3 - Assign and test your Policy](#Exercise-3---Assign-and-test-your-Policy)
+  - [Theoretical Content](#Theoretical-Content)
+    - [Custom Policies Intro](#Custom-Policies-Intro)
+    - [Azure Policy Definitions](#Azure-Policy-Definitions)
+      - [Mode](#Mode)
+      - [Display name and description](#Display-name-and-description)
+      - [Parameters](#Parameters)
+      - [Policy Rule](#Policy-Rule)
+      - [Logical Operators](#Logical-Operators)
+      - [Conditions, Fields and Values](#Conditions-Fields-and-Values)
+      - [Aliases](#Aliases)
+      - [Functions](#Functions)
+      - [Effect](#Effect)
+    - [Azure Policy Initiatives](#Azure-Policy-Initiatives)
+
+## Introduction
 
 In this lab you will learn how to create custom policies and custom initiatives so that you can gain control of Azure given your specific needs
 
-# Exercises
+## Exercises
 
-## Exercise 1 - Develop your custom policy rule in an ARM Template
+### Exercise 1 - Develop your custom policy rule in an ARM Template
 
 > Related theoretical content:
 > + [Custom Policies intro](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=custom-policies-intro)
@@ -109,7 +131,7 @@ Get-AzPolicyDefinition | ? {$_.properties.policyType -eq "Custom"}
 
 ----
 
-## Exercise 2 - Develop your custom initiative in an ARM Template
+### Exercise 2 - Develop your custom initiative in an ARM Template
 
 > Related theoretical content:
 > + [Azure Policy Initiatives](https://dev.azure.com/alguadamorg/Azure%20Policies%20Lab/_wiki/wikis/Azure-Policies-Lab.wiki?pagePath=%2FAzure%20Policies%20Lab%2FLab%202%20(30%20min)%3A%20Develop%20and%20Test%20your%20custom%20Policy&pageId=309&wikiVersion=GBwikiMaster&anchor=azure-policy-initiatives)
@@ -204,7 +226,7 @@ Get-AzPolicySetDefinition | ? {$_.properties.policyType -eq "Custom"}
 
 ----
 
-## Exercise 3 - Assign and test your Policy
+### Exercise 3 - Assign and test your Policy
 
 In this exercise, you will test if your policy is working as expected by assigning the policy to a Resource Group and deploying au uncompliant resource so that the policy denies the deployment
 
@@ -514,9 +536,9 @@ However, when deploying the compliant Storage Account, the policy should allow t
 
 ----
  
-# Theoretical Content
+## Theoretical Content
 
-## Custom Policies Intro
+### Custom Policies Intro
 
 A [custom policy](https://docs.microsoft.com/en-us/azure/governance/policy/tutorials/create-custom-policy-definition) definition will allow you to define your own rules for using Azure. These rules often enforce:
 + Security practices
@@ -525,7 +547,7 @@ A [custom policy](https://docs.microsoft.com/en-us/azure/governance/policy/tutor
 
 Whatever the business driver for creating a custom policy, the steps are the same for defining the new custom policy.
 
-## Azure Policy Definitions 
+### Azure Policy Definitions 
 
 > Read more about Azure Policy Definition structure in [this article](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure).
 
@@ -555,7 +577,7 @@ You use JSON to create a policy definition. The schema used by Azure Policy can 
 }
 ```
 
-### Mode
+#### Mode
 
 > Read more about modes in [this article](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#mode)
 
@@ -568,7 +590,7 @@ We recommend that you set mode to `all` in most cases.
 
 `indexed` should be used when creating policies that enforce tags or locations. The exception is resource groups.  Policies that enforce location or tags on a resource group should set mode to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroups` type.
 
-### Display name and description
+#### Display name and description
 
 > Read more about display name and description in [this article](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#display-name-and-description)
 
@@ -592,7 +614,7 @@ E.g.
 }
 ```
 
-### Parameters
+#### Parameters
 
 > Read more about parameters [this article](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#parameter-properties) 
 
@@ -638,7 +660,7 @@ In the policy rule, you reference parameters with the following parameters deplo
 }
 ```
 
-### Policy Rule
+#### Policy Rule
 
 > Read more about policy rules in [this article](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#policy-rule)
 
@@ -998,7 +1020,7 @@ E.g.
 }
 ```
 
-## Azure Policy Initiatives
+### Azure Policy Initiatives
 
 > Read more about Azure Policy Initiatives [here](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#initiatives)
 
