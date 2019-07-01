@@ -455,7 +455,7 @@ E.g. of built-in policy:
 
 ```json
 {
-  "properties": {,
+  "properties": {
     "id": "/providers/Microsoft.Authorization/policyDefinitions/cf820ca0-f99e-4f3e-84fb-66e913812d21",
     "type": "Microsoft.Authorization/policyDefinitions",
     "name": "cf820ca0-f99e-4f3e-84fb-66e913812d21",
