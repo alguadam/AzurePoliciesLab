@@ -1,0 +1,35 @@
+name: $(Build.DefinitionName)-$(SourceBranchName)-$(Date:yyyyMMdd).$(Rev:rr)
+
+variables:
+  RepoName: {your-repo-name}
+  FolderPath: Templates/Assignments #change it you didn't follow our suggested path
+  ArtifactName: assignments
+
+resources:
+  repositories:
+    - repository: main
+      type: git
+      name: '$(RepoName)'
+
+trigger: #continuous integration will be enabled for all branches and the path containing the ARM template
+  branches:
+    include:
+      - '*'
+  paths:
+    include:
+      - Templates/Assignments #change it you didn't follow our suggested path
+
+jobs:
+- job: Build
+  displayName: Build
+  pool:
+    vmImage: ubuntu-16.04
+  workspace:
+    clean: all
+  
+  steps:
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Template Files as Azure DevOps artifact'
+    inputs:
+      PathtoPublish: $(FolderPath)
+      ArtifactName: $(ArtifactName)

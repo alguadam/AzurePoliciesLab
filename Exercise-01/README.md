@@ -184,7 +184,7 @@ Suggested File Path: `Parameters\lab01-rgAssignments.json`
 
 where: 
 
-+ The `{builtin-policy-definition-name}` value must be the name assigned to the built-in policy that you want to use.
++ The `{builtin-policy-definition-name}` value must be your alias + the name assigned to the built-in policy that you want to use.
 + The `{parameterName}` must be the name of the parameter that you want to configure for the policy definition. If there are no parameters needed, leave the value for `parameters` as an empty object (`"parameters" : {}`)
 + The `{your-resource-group-name}` value must be the name of the Resource Group where you will assign the policy
 

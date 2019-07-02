@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {
+        "policyName-storageAccountDenyHttps": "StorageAccount-DenyHTTP"
+    },
+    "functions": [],
+    "resources": [
+        {
+            "name": "{The Initiative name}",
+            "type": "Microsoft.Authorization/policySetDefinitions",
+            "apiVersion": "2018-05-01",
+            "properties": {
+                "displayName": "{The Initiative display name}",
+                "description": "{The Initiative description}",
+                "policyDefinitions": [
+                    {
+                        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions',variables('{The Policy Rule Definition name from Task 1}'))]"
+                    }
+                ]
+            }
+        }
+    ],
+    "outputs": {}
+}
