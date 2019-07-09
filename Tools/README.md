@@ -3,6 +3,8 @@
 
 The CCO Dashboard Policies extension allows you to validate if the policies and initiatives that you defined are compliant or not. 
 
+
+
 ## Requirements
 
 - The Continuous Optimization Power BI Dashboard Policies extension is a Power BI Template that requires to download and install the Microsoft Power BI Desktop Edition from the Microsoft Store. Below you can find the minimum requirements to run the Dashboard
