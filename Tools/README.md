@@ -3,7 +3,7 @@
 
 The CCO Dashboard Policies extension allows you to validate if the policies and initiatives that you defined are compliant or not. 
 
-
+![image](https://github.com/alguadam/AzurePoliciesLab/blob/master/Tools/img/MSReadyPoliciesLab.png?raw=true)
 
 ## Requirements
 
