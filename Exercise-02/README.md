@@ -419,7 +419,7 @@ We will deploy a Storage Account resource to see if the policy is working as exp
 
 Use the following ARM Template for this purpose:
 
-Suggested File Path: `Templates\StorageAccount\initiative.json`
+Suggested File Path: `Templates\StorageAccount\deploy.json`
 ```json
 {
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
