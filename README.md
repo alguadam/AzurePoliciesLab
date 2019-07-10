@@ -50,11 +50,11 @@ You will need to **add the provisioned Service Principal to the Azure DevOps pro
 
 Then you can use [Visual Studio Code to clone](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository) the Repo and start the lab or use your own GitHub repo.
 
-### Configure your own environment
+## Configure your own environment
 
-If you want to do this lab in your own environment, you need to configure the prerequisites listed below:
+If you want to do this lab in your own environment istead of the Pre-provisioned environment, you need to configure the prerequisites listed below:
 
-#### Git Repo (Azure DevOps Repo / Github)
+### Git Repo (Azure DevOps Repo / Github)
 
 You will write and version your ARM Templates using a Git Repo. You have two options for 
 
@@ -63,13 +63,13 @@ You will write and version your ARM Templates using a Git Repo. You have two opt
 
 See how to [clone your Repo with Visual Studio Code](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository)
 
-#### Azure Pipelines
+### Azure Pipelines
 
 You will configure CD and CI using [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops). You will need an Azure DevOps Project [here](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops) in order to use Pipelines.
 
 You can use both [Azure Repos](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops) and [Github](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml) with your Pipelines
 
-#### Azure DevOps Service Connection (Azure Active Directory Service Principal)
+### Azure DevOps Service Connection (Azure Active Directory Service Principal)
 
 You wil use a [Service Principal connected to your Azure DevOps pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints) that will allow you to deploy resources to Azure.
 
