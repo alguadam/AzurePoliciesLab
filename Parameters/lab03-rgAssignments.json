@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "customInitiatives": {
+            "value": [
+                {
+                    "initiativeName": "StorageAccountInitiative",
+                    "parameters": {},
+                    "assignmentDisplayName": "Storage Account Initiative",
+                    "managedIdentity": false
+                }
+            ]
+        },
+        "builtInInitiatives": {
+            "value": [
+                {
+                    "initiativeName": "c96b2a9c-6fab-4ac2-ae21-502143491cd4",
+                    "parameters": {},
+                    "assignmentDisplayName": "Audit Windows VMs with a pending reboot",
+                    "managedIdentity": true
+                }
+            ]
+        }
+    }
+}
