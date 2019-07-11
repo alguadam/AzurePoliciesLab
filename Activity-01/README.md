@@ -227,8 +227,9 @@ variables:
 resources:
   repositories:
     - repository: main
-      type: git
+      type: {git | github}
       name: '$(RepoName)'
+      endpoint: {the name of the endpont to be used for login to Github} # only needed if repo is GitHub
 
 trigger: #continuous integration will be enabled for all branches and the path containing the ARM template
   branches:
@@ -281,8 +282,9 @@ variables:
 resources:
   repositories:
     - repository: main
-      type: git
+      type: {git | github}
       name: '$(RepoName)'
+      endpoint: {the name of the endpont to be used for login to Github} # only needed if repo is GitHub
 
 trigger: #continuous integration will be enabled for all branches and the path containing the parameter files
   branches:
