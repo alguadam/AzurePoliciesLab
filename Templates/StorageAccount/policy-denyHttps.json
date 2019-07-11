@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "functions": [],
+    "resources": [
+        {
+            "name": "{The Policy Rule Definition name}",
+            "type": "Microsoft.Authorization/policyDefinitions",
+            "apiVersion": "2018-05-01",
+            "properties": {
+                "displayName": "{The Policy Rule Definition Display Name}",
+                "description": "{The Policy Rule Definition description}",
+                "mode": "All",
+                "policyType": "Custom",
+                "parameters": {},
+                "policyRule": {
+                    "if": {
+                    },
+                    "then": {
+                    }
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}

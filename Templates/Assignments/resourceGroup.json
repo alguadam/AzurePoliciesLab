@@ -1,0 +1,106 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "builtInPolicyDefinitions": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "customPolicyDefinitions": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "builtInInitiatives": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "customInitiatives": {
+            "type": "array",
+            "defaultValue": []
+        },
+        "resourceGroupName": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().name]"
+        },
+        "resourceGroupSubscriptionId": {
+            "type": "string",
+            "defaultValue": "[subscription().subscriptionId]"
+        }
+    },
+    "variables": {
+        "subscriptionResourceId": "[concat('/subscriptions/',parameters('resourceGroupSubscriptionId'))]",
+        "resourceGroupResourceId": "[concat('/subscriptions/',parameters('resourceGroupSubscriptionId'),'/resourceGroups/',parameters('resourceGroupName'))]",
+        "copy": [
+            {
+                "name": "builtInPolicyDefinitionResourceIds",
+                "count": "[if(empty(parameters('builtInPolicyDefinitions')),1,length(parameters('builtInPolicyDefinitions')))]",
+                "input": {
+                    "resourceId": "[if(empty(parameters('builtInPolicyDefinitions')),'dummy',concat('/providers/Microsoft.Authorization/policyDefinitions/',parameters('builtInPolicyDefinitions')[copyIndex('builtInPolicyDefinitionResourceIds')].policyDefinitionName))]",
+                    "name": "[if(empty(parameters('builtInPolicyDefinitions')),'dummy',parameters('builtInPolicyDefinitions')[copyIndex('builtInPolicyDefinitionResourceIds')].policyDefinitionName)]",
+                    "parameters": "[if(empty(parameters('builtInPolicyDefinitions')),'dummy',parameters('builtInPolicyDefinitions')[copyIndex('builtInPolicyDefinitionResourceIds')].parameters)]",
+                    "displayName": "[if(empty(parameters('builtInPolicyDefinitions')),'dummy',parameters('builtInPolicyDefinitions')[copyIndex('builtInPolicyDefinitionResourceIds')].assignmentDisplayName)]",
+                    "identity": "[if(empty(parameters('builtInPolicyDefinitions')),'dummy',parameters('builtInPolicyDefinitions')[copyIndex('builtInPolicyDefinitionResourceIds')].managedIdentity)]"
+                }
+            },
+            {
+                "name": "customPolicyDefinitionResourceIds",
+                "count": "[if(empty(parameters('customPolicyDefinitions')),1,length(parameters('customPolicyDefinitions')))]",
+                "input": {
+                    "resourceId": "[if(empty(parameters('customPolicyDefinitions')),'dummy',concat(variables('subscriptionResourceId'),'/providers/Microsoft.Authorization/policyDefinitions/',parameters('customPolicyDefinitions')[copyIndex('customPolicyDefinitionResourceIds')].policyDefinitionName))]",
+                    "name": "[if(empty(parameters('customPolicyDefinitions')),'dummy',parameters('customPolicyDefinitions')[copyIndex('customPolicyDefinitionResourceIds')].policyDefinitionName)]",
+                    "parameters": "[if(empty(parameters('customPolicyDefinitions')),'dummy',parameters('customPolicyDefinitions')[copyIndex('customPolicyDefinitionResourceIds')].parameters)]",
+                    "displayName": "[if(empty(parameters('customPolicyDefinitions')),'dummy',parameters('customPolicyDefinitions')[copyIndex('customPolicyDefinitionResourceIds')].assignmentDisplayName)]",
+                    "identity": "[if(empty(parameters('customPolicyDefinitions')),'dummy',parameters('customPolicyDefinitions')[copyIndex('customPolicyDefinitionResourceIds')].managedIdentity)]"
+                }
+            },
+            {
+                "name": "builtInInitiativeResourceIds",
+                "count": "[if(empty(parameters('builtInInitiatives')),1,length(parameters('builtInInitiatives')))]",
+                "input": {
+                    "resourceId": "[if(empty(parameters('builtInInitiatives')),'dummy',concat('/providers/Microsoft.Authorization/policySetDefinitions/',parameters('builtInInitiatives')[copyIndex('builtInInitiativeResourceIds')].initiativeName))]",
+                    "name": "[if(empty(parameters('builtInInitiatives')),'dummy',parameters('builtInInitiatives')[copyIndex('builtInInitiativeResourceIds')].initiativeName)]",
+                    "parameters": "[if(empty(parameters('builtInInitiatives')),'dummy',parameters('builtInInitiatives')[copyIndex('builtInInitiativeResourceIds')].parameters)]",
+                    "displayName": "[if(empty(parameters('builtInInitiatives')),'dummy',parameters('builtInInitiatives')[copyIndex('builtInInitiativeResourceIds')].assignmentDisplayName)]",
+                    "identity": "[if(empty(parameters('builtInInitiatives')),'dummy',parameters('builtInInitiatives')[copyIndex('builtInInitiativeResourceIds')].managedIdentity)]"
+                }
+            },
+            {
+                "name": "customInitiativeResourceIds",
+                "count": "[if(empty(parameters('customInitiatives')),1,length(parameters('customInitiatives')))]",
+                "input": {
+                    "resourceId": "[if(empty(parameters('customInitiatives')),'dummy',concat(variables('subscriptionResourceId'),'/providers/Microsoft.Authorization/policySetDefinitions/',parameters('customInitiatives')[copyIndex('customInitiativeResourceIds')].initiativeName))]",
+                    "name": "[if(empty(parameters('customInitiatives')),'dummy',parameters('customInitiatives')[copyIndex('customInitiativeResourceIds')].initiativeName)]",
+                    "parameters": "[if(empty(parameters('customInitiatives')),'dummy',parameters('customInitiatives')[copyIndex('customInitiativeResourceIds')].parameters)]",
+                    "displayName": "[if(empty(parameters('customInitiatives')),'dummy',parameters('customInitiatives')[copyIndex('customInitiativeResourceIds')].assignmentDisplayName)]",
+                    "identity": "[if(empty(parameters('customInitiatives')),'dummy',parameters('customInitiatives')[copyIndex('customInitiativeResourceIds')].managedIdentity)]"
+                }
+            }
+        ],
+        "managedIdentity": {
+            "type": "SystemAssigned"
+        },
+        "policyResourceIds": "[concat(if(empty(parameters('builtInPolicyDefinitions')),parameters('builtInPolicyDefinitions'),variables('builtInPolicyDefinitionResourceIds')),if(empty(parameters('customPolicyDefinitions')),parameters('customPolicyDefinitions'),variables('customPolicyDefinitionResourceIds')),if(empty(parameters('builtInInitiatives')),parameters('builtInInitiatives'),variables('builtInInitiativeResourceIds')),if(empty(parameters('customInitiatives')),parameters('customInitiatives'),variables('customInitiativeResourceIds')))]"
+    },
+    "functions": [],
+    "resources": [
+        {
+            "condition": "[not(empty(variables('policyResourceIds')))]",
+            "copy": {
+                "name": "policyAssignmentCopy",
+                "count": "[if(empty(variables('policyResourceIds')),1,length(variables('policyResourceIds')))]"
+            },
+            "type": "Microsoft.Authorization/policyAssignments",
+            "apiVersion": "2018-05-01",
+            "name": "[if(empty(variables('policyResourceIds')),'dummy',variables('policyResourceIds')[copyIndex('policyAssignmentCopy')].name)]",
+            "location": "[resourceGroup().location]",
+            "properties": {
+                "policyDefinitionId": "[variables('policyResourceIds')[copyIndex('policyAssignmentCopy')].resourceId]",
+                "scope": "[variables('resourceGroupResourceId')]",
+                "parameters": "[variables('policyResourceIds')[copyIndex('policyAssignmentCopy')].parameters]",
+                "displayName": "[variables('policyResourceIds')[copyIndex('policyAssignmentCopy')].displayName]"
+            },
+            "Identity": "[if(variables('policyResourceIds')[copyIndex('policyAssignmentCopy')].identity,variables('managedIdentity'),json('null'))]"
+        }
+    ],
+    "outputs": {}
+}
