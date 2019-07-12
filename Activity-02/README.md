@@ -110,7 +110,7 @@ You can publish your Policy to your subscription by using the following PowerShe
 $pathToARMTemplate = "Templates\StorageAccount\policy-denyHttp.json"
 
 $policyDefinitionAzDeploymentParams = @{
-    TemplateFile = $pathToARMTemplate
+    TemplateFile = (Get-Item $pathToARMTemplate).FullName
     Name         = "policyDeployment-" + (Get-Date -Format FileDateTimeUniversal)
     Location     = "westeurope"
 }
@@ -200,11 +200,11 @@ Once you have your template ready, we will again test it by directly publishing 
 You can publish your Initiative to your subscription by using the following PowerShell Script:
 
 ```PowerShell
-# Deploy a Policy Definition via ARM Template
+# Deploy a Initiative via ARM Template
 $pathToARMTemplate = "Templates\StorageAccount\initiative.json"
 
 $initiativeAzDeploymentParams = @{
-    TemplateFile = $pathToARMTemplate
+    TemplateFile = (Get-Item $pathToARMTemplate).FullName
     Name         = "initiative-" + (Get-Date -Format FileDateTimeUniversal)
     Location     = "westeurope"
 }
@@ -387,8 +387,8 @@ $pathToARMTemplateParameters = "Parameters\lab02-rgAssignments.json"
 
 $assignmentAzDeploymentParams = @{
     ResourceGroupName     = $rgName
-    TemplateFile          = $pathToARMTemplate
-    TemplateParameterFile = $pathToARMTemplateParameters
+    TemplateFile          = (Get-Item $pathToARMTemplate).FullName
+    TemplateParameterFile = (Get-Item $pathToARMTemplateParameters).FullName
     Name                  = "policyAssingments-" + (Get-Date -Format FileDateTimeUniversal)
 }
 New-AzResourceGroupDeployment @assignmentAzDeploymentParams
@@ -501,7 +501,7 @@ $compliantStorageAccountARMTemplateParameters = "Parameters\lab02-storageAccount
 $httpStorageAccountAzDeploymentParams = @{
     ResourceGroupName     = $rgName
     TemplateFile          = $storageAccountARMTemplate
-    TemplateParameterFile = $uncompliantStorageAccountARMTemplateParameters
+    TemplateParameterFile = (Get-Item $uncompliantStorageAccountARMTemplateParameters).FullName
     Name                  = "storageAccount-" + (Get-Date -Format FileDateTimeUniversal)
     ErrorAction           = "SilentlyContinue"
     ErrorVariable         = "saDeploymentError"
@@ -516,8 +516,8 @@ if ($saDeploymentError) {
 # Deploy Compliant Storage Account (HTTP traffic disallowed)
 $httpsStorageAccounttAzDeploymentParams = @{
     ResourceGroupName     = $rgName
-    TemplateFile          = $storageAccountARMTemplate
-    TemplateParameterFile = $compliantStorageAccountARMTemplateParameters
+    TemplateFile          = (Get-Item $storageAccountARMTemplate).FullName
+    TemplateParameterFile = (Get-Item $compliantStorageAccountARMTemplateParameters).FullName
     Name                  = "storageAccount-" + (Get-Date -Format FileDateTimeUniversal)
 }
 Write-Output "Deploying HTTPS Storage Account"
