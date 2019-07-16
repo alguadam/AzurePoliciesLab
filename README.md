@@ -44,11 +44,13 @@ You will need a IDE to let you work with an Azure DevOps or GitHub Repository an
 You can use a pre-provisioned environment for this lab in [Cloud Labs](https://aka.ms/R-AIST314).
 
 This environment will provision for you:
-+ An Azure DevOps Project
++ An Azure DevOps Organization
 + An Azure Subscription
 + An Azure Resource Group
 + An AAD User with Owner permissions assigned to the Resource Group and permissions to work with Policies at subscription level
 + An AAD Service Principal with Owner permissions assigned to the Resource Group and permissions to work with Policies at subscription level.
+
+An **Azure DevOps Project** inside the **Organization** will be needed, it can created following this [steps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops#create-a-project-from-the-web-portal).
 
 You will need to **add the provisioned Service Principal to the Azure DevOps project** as a [Azure RM Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
