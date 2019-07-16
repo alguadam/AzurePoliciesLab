@@ -50,11 +50,11 @@ This environment will provision for you:
 + An AAD User with Owner permissions assigned to the Resource Group and permissions to work with Policies at subscription level
 + An AAD Service Principal with Owner permissions assigned to the Resource Group and permissions to work with Policies at subscription level.
 
-An **Azure DevOps Project** inside the **Organization** will be needed, it can created following this [steps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops#create-a-project-from-the-web-portal).
+Once provisioned, make sure that follow these steps:
++ Create an **Azure DevOps Project** inside the provided **Organization**, it can created following this [steps](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops#create-a-project-from-the-web-portal).
++ Configure to **add the provisioned Service Principal to the Azure DevOps project** as a [Azure RM Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
-You will need to **add the provisioned Service Principal to the Azure DevOps project** as a [Azure RM Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/connect-to-azure?view=azure-devops#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
-
-Then you can use [Visual Studio Code to clone](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository) the Repo and start the lab or use your own GitHub repo.
+With this configuration ready, you can use [Visual Studio Code to clone](https://code.visualstudio.com/docs/editor/versioncontrol#_cloning-a-repository) your Github repository or the DevOps Repo in this project and start the lab.
 
 ## Configure your own environment
 
