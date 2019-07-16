@@ -28,6 +28,10 @@ Register-PSRepository -Default
 Install-Module Az -Force
 ```
 
+### Git
+
+You will need Git to work with your Github / Azure Repo. You can install Git at [https://git-scm.com/downloads](https://git-scm.com/downloads)
+
 ### IDE (Visual Studio Code)
 
 You will need a IDE to let you work with an Azure DevOps or GitHub Repository and ARM Templates. We recommend that you use [Visual Studio Code](https://code.visualstudio.com/) for this lab with at least the following extensions installed:
