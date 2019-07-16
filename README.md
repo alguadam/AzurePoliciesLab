@@ -56,12 +56,11 @@ Then you can use [Visual Studio Code to clone](https://code.visualstudio.com/doc
 
 ## Configure your own environment
 
-If you want to do this lab in your own environment istead of the Pre-provisioned environment, you need to configure the prerequisites listed below:
+If you want to do this lab in your own environment instead of the Pre-provisioned environment, you need to configure the prerequisites listed below:
 
-### Git Repo (Azure DevOps Repo / Github)
+### Git Repository (Azure DevOps Repo / Github)
 
-You will write and version your ARM Templates using a Git Repo. You have two options for 
-
+You will write and version your ARM Templates using a Git Repo. We recommend the following options for using as Git repository:
 + Option 1 - [Azure DevOps Repos](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/?view=azure-devops): See how to get your free Azure DevOps Project [here](https://docs.microsoft.com/en-us/azure/devops/user-guide/sign-up-invite-teammates?view=azure-devops)
 + Option 2 - [GitHub](https://help.github.com/en/articles/create-a-repo) repos: see how to get your [Github account](https://github.com/join).
 
