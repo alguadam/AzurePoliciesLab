@@ -16,6 +16,8 @@
 
 In this activity you will configure Build and Release pipelines so that you can manage assignment of built-in policies and initiatives using Infrastructure as Code.
 
+**You must use an InPrivate Browser if you're running the lab with the self provisioned credentials**
+
 ## Instructions
 
 ### Task 1 - Create assignments for your built-in policies in your Azure DevOps / Github Repo 
